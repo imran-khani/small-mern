@@ -1,4 +1,5 @@
 import axios from "axios";
+import { Product } from "../types";
 
 
 const API_URL = import.meta.env.VITE_API_URL as string || 'http://localhost:5000/api'
@@ -19,3 +20,14 @@ export const getProductById = async (productId:string)=>{
          console.error(error)
     }
 }
+
+export const addProduct = async (productData: {
+    name: string;
+    description: string;
+    price: number;
+    countInStock: number;
+    imageUrl: string;
+  }) => {
+    const response = await axios.post(API_URL, productData);
+    return response.data;
+  };
