@@ -18,20 +18,19 @@ export const getProducts = async (req: Request, res: Response) => {
   }
 };
 
-// @desc get products by id
-// @route /api/products/:id
+// @desc Get product by ID
+// @route Get /api/products/:id
 // @access public
 
-export const getProductsById = async (req:Request, res:Response) {
-    try {
-      const product = await Product.findById(req.params.id);
-      if (product) {
-        res.json(product);
-      } else {
-        res.status(404).json({ message: "Product not found" });
-      }
-    } catch (error: any) {
-      res.status(500).json({ message: error.message });
+export const getProductById = async (req: Request, res: Response) => {
+  try {
+    const product = await Product.findById(req.params.id);
+    if (product) {
+      res.json(product);
+    } else {
+      res.status(404).json({ message: "Product not found" });
     }
-  };
-    }
+  } catch (error: any) {
+    res.status(500).json({ message: error.message });
+  }
+};
