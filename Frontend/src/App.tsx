@@ -10,11 +10,14 @@ const App: React.FC = () => {
       <Router>
         <div className="App">
           <Routes>
+            
             <Route path="/" element={<Home />} />
             <Route path='/add-product' element={<AddProduct/>} />
+
           </Routes>
         </div>
       </Router>
+      
     </ProductProvider>
   );
 };
